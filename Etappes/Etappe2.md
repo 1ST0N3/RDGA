@@ -21,7 +21,7 @@
   </tr>
   <tr align="left">
     <th>Klimpunten</th>
-    <td>786+600</td>
+    <td>1936</td>
     <td>-</td>
   </tr>
 </table>
@@ -127,8 +127,3 @@
 </table>
 
 ![](https://climbfinder.com/CDN/col-des-aravis-thones.png)
-
-## Fun Facts
-- GTA = La Grande Traversée des Alpes (Wandelroute GR5 vanaf HvH naar Nice)
-- [Logo startsteen](https://commons.wikimedia.org/wiki/Armorial_of_France#/media/File:Blason_Chablais.svg)
-- De Chablais is een oude provincie van het hertogdom Savoye met Thonon-les-Bains, aan het meer van Genève als hoofdstad. De streek is nu verdeeld over de Zwitserse kantons Wallis en Vaud en het Franse departement Haute-Savoie. Wapenschild van Chablais = leeuw.
