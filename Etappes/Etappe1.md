@@ -4,26 +4,26 @@
 ## Facts
 
 | Afstand [km]  |  Stijging [m] | Daling [m] |  154  |
-|-----|-----|-----|-----|
+| :--- |-----|-----|-----|
 |   | 1.270 | 1.220  | 154  |
 
 <table>
-  <tr>
+  <tr align="left">
     <th>Afstand</th>
     <td>58.4</td>
     <td>km</td>
   </tr>
-  <tr>
+  <tr align="left">
     <th>Stijging</th>
     <td>1270</td>
     <td>m</td>
   </tr>
-  <tr>
+  <tr align="left">
     <th>Daling</th>
     <td>1220</td>
     <td>m</td>
   </tr>
-  <tr>
+  <tr align="left">
     <th>Klimpunten</th>
     <td>154</td>
     <td>-</td>
