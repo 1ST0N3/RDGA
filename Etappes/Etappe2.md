@@ -1,5 +1,5 @@
 # [Etappe 2](https://www.komoot.com/nl-nl/tour/1116318879)
-### [Go back](../Notes.md)
+### [Go back](../README.md)
 
 ## Facts
 
