@@ -5,13 +5,36 @@
 
 | Afstand [km]  |  Stijging [m] | Daling [m] |  154  |
 |-----|-----|-----|-----|
-|  58.4 | 1.270 | 1.220  | 154  |
+|   | 1.270 | 1.220  | 154  |
+
+<table>
+  <tr>
+    <th>Afstand</th>
+    <td>58.4</td>
+    <td>km</td>
+  </tr>
+  <tr>
+    <th>Stijging</th>
+    <td>1270</td>
+    <td>m</td>
+  </tr>
+  <tr>
+    <th>Daling</th>
+    <td>1220</td>
+    <td>m</td>
+  </tr>
+  <tr>
+    <th>Klimpunten</th>
+    <td>154</td>
+    <td>-</td>
+  </tr>
+</table>
 
 ## Cols
 
-| **Cols** | Afstand [km]  |  Hoogtemeters [m] | Gem. [%]  |  Klimpunten [-]  |
-|-----|-----|-----|-----|-----|
-| [Les Gets](https://climbfinder.com/nl/beklimmingen/les-gets-morzine)  |  7.1 | 284 | 4  | 154  |
+| **Cols** | Cat. | Afstand [km]  |  Hoogtemeters [m] | Gem. [%]  |  Klimpunten [-] |
+|-----|-----|-----|-----|-----|-----|
+| [Les Gets](https://climbfinder.com/nl/beklimmingen/les-gets-morzine)  | 3 |  7.1 | 284 | 4  | 154  |
 
 - Zeer gemakkelijke beklimming van Morzine naar Les Gets
 
