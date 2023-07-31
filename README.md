@@ -1,6 +1,8 @@
 # Route Des Grandes Alpes
 Vakantie 14-08-2023 <--> 01-09-2023
 
+![](Summary.jpg)
+
 10u rijden naar autostalplaats, uur fietsen, half uur boot, eten meenemen
 Boot van Lausanne-Ouchy naar Evian-les-Bains, 21+14=35 zwitserse frank: https://www.cgn.ch/en/trip/search/result/?direction=1&departure_date=2023-08-15&departure_hour=00%3A00&departure_station=LAUSA0&arrival_station=EVIAN0
 
