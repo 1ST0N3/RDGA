@@ -7,6 +7,7 @@ Boot van Lausanne-Ouchy naar Evian-les-Bains, 21+14=35 zwitserse frank: https://
 
 Etappes:
 - [Etappe 1:](Etappes/Etappe1.md)
+- [Etappe 2:](Etappes/Etappe2.md)
 
 
 Notes etappe X:
