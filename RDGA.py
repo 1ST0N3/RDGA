@@ -88,8 +88,8 @@ def add_Cols(fol,colData):
         fol.scatter(col[["lat","lon"]],group_name="Cols",popup=[popup],icon=icon,show=False)
 
 def draw_on_map_folium(obj_lst, save_name="Strava_folium.html"):
-    lat = obj_lst[-1].data_df.lat
-    lon = obj_lst[-1].data_df.lon
+    lat = obj_lst[-1].df.lat
+    lon = obj_lst[-1].df.lon
 
     mean_lat = min(lat) + (max(lat) - min(lat)) / 2
     mean_lon = min(lon) + (max(lon) - min(lon)) / 2
@@ -135,9 +135,9 @@ def draw_on_map_folium(obj_lst, save_name="Strava_folium.html"):
             finishPop = "Finish RGDA"
             popup = "<b>" + obj.name + "</b>"
             
-        fol.plot(obj.data_df[["lat","lon"]],color=col,group_name=obj.name,opacity=alpha,popup=popup)
-        fol.scatter(obj.data_df[["lat","lon"]].iloc[0],color="blue",group_name=obj.name,popup=[startPop])
-        fol.scatter(obj.data_df[["lat","lon"]].iloc[-1],color="green",group_name=obj.name,popup=[finishPop])
+        fol.plot(obj.df[["lat","lon"]],color=col,group_name=obj.name,opacity=alpha,popup=popup)
+        fol.scatter(obj.df[["lat","lon"]].iloc[0],color="blue",group_name=obj.name,popup=[startPop])
+        fol.scatter(obj.df[["lat","lon"]].iloc[-1],color="green",group_name=obj.name,popup=[finishPop])
 
     save_dir = "Maps/"
     fol.save_map(os.path.join(save_dir, save_name),False)

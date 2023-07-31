@@ -21,46 +21,12 @@
   </tr>
   <tr align="left">
     <th>Klimpunten</th>
-    <td>1936</td>
+    <td>1484</td>
     <td>-</td>
   </tr>
 </table>
 
 ## Cols
-
-### [Col de Romme](https://climbfinder.com/nl/beklimmingen/les-gets-morzine)
-<table>
-	<tr align="left">
-		<th>Cat.</th>
-		<td>1</td>
-		<td></td>
-	</tr>
-	<tr align="left">
-		<th>Afstand</th>
-		<td>9.3</td>
-		<td>km</td>
-	</tr>
-		<tr align="left">
-		<th>Hoogtemeters</th>
-		<td>813</td>
-		<td>m</td>
-	</tr>
-	</tr>
-		<tr align="left">
-		<th>Gem.</th>
-		<td>8.7</td>
-		<td>%</td>
-	</tr>
-	<tr align="left">
-		<th>Klimpunten</th>
-		<td>786</td>
-		<td></td>
-	</tr>
-</table>
-
-> "Van begin tot einde een steile klim die enkel in het dorpje Nancy-sur-Cluses een paar percentages afvlakt. Wel een rustige klim met een goed wegdek. Vanaf het begin je ritme vinden en dat tot boven volhouden is zeer goed mogelijk. Genieten van de uitzichten tijdens de klim en op het einde kan je zelfs de top van de Colombière spotten!"
-
-![](https://climbfinder.com/CDN/romme-sur-cluses.png)
 
 ### [Col de la Colombière](https://climbfinder.com/nl/beklimmingen/col-de-la-colombiere-scionzier)
 <table>
@@ -71,28 +37,29 @@
 	</tr>
 	<tr align="left">
 		<th>Afstand</th>
-		<td>7.5 </td>
+		<td>16.3</td>
 		<td>km</td>
 	</tr>
 		<tr align="left">
 		<th>Hoogtemeters</th>
-		<td>630</td>
+		<td>1124</td>
 		<td>m</td>
 	</tr>
 	</tr>
 		<tr align="left">
 		<th>Gem.</th>
-		<td>8.4</td>
+		<td>6.9</td>
 		<td>%</td>
 	</tr>
 	<tr align="left">
 		<th>Klimpunten</th>
-		<td>600</td>
+		<td>934</td>
 		<td></td>
 	</tr>
 </table>
 
-> "De la Colombière beklommen na Col de Romme, wel vanuit de richting Scionzier. Het eerste gedeelte vanuit Scionzier sla je dan over en na de afdaling vanaf Romme pik je de klim voor nog 7 km op. Aantal pittige steile stukjes en de laatste 4 a 3 km worden enkel maar steiler en zwaarder. Wel een fantastische omgeving en uitzicht om te fietsen. Echt de moeite waard."
+> "Prachtige klim met gedurende de gehele klim beschilderd wegdek met namen van bekende wielrenners. De klim is vanaf deze kant in te delen in twee blokjes klimmen met een stukje rust in het midden. Het eerste blok is niet heel zwaar en je rijdt hier door een dicht stuk bos. Na het dorpje Le Reposoir gaat het progressief steiler. De laatste 5 kilometer zijn volgens de bordjes aan de kant van de weg steeds een procentje steiler, beginnend bij 7％ en de laatste kilometer naar de top aan 11％.
+Bijzonder is het dat hoewel je de top op een dikke 1600 meter hebt liggen, deze klim aanvoelt en er ook uitziet in de laatste kilometers alsof je in het hooggebergte zit."
 
 ![](https://climbfinder.com/CDN/col-de-la-colombiere-scionzier.png)
 
