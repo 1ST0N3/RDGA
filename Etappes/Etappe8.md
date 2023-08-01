@@ -1,4 +1,4 @@
-# [Etappe 5](https://www.komoot.com/nl-nl/tour/1116393375)
+# [Etappe 8](https://www.komoot.com/nl-nl/tour/1116662051)
 ### [Go back](../README.md)
 
 ## Facts
@@ -6,29 +6,29 @@
 <table>
   <tr align="left">
     <th>Afstand</th>
-    <td>77.8</td>
+    <td>81.3</td>
     <td>km</td>
   </tr>
   <tr align="left">
     <th>Stijging</th>
-    <td>2230</td>
+    <td>2590</td>
     <td>m</td>
   </tr>
   <tr align="left">
     <th>Daling</th>
-    <td>1900</td>
+    <td>2740</td>
     <td>m</td>
   </tr>
   <tr align="left">
     <th>Klimpunten</th>
-    <td>1561</td>
+    <td>1526</td>
     <td>-</td>
   </tr>
 </table>
 
 ## Cols
 
-### [Col du Télégraphe](https://climbfinder.com/nl/beklimmingen/col-du-telegraphe)
+### [Col Saint-Martin / Col Colmiane](https://climbfinder.com/nl/beklimmingen/col-saint-martin-col-colmiane-la-bouline)
 <table>
 	<tr align="left">
 		<th>Cat.</th>
@@ -37,76 +37,72 @@
 	</tr>
 	<tr align="left">
 		<th>Afstand</th>
-		<td>11.8</td>
+		<td>16.0</td>
 		<td>km</td>
 	</tr>
 		<tr align="left">
 		<th>Hoogtemeters</th>
-		<td>837</td>
+		<td>1000</td>
 		<td>m</td>
 	</tr>
 	</tr>
 		<tr align="left">
 		<th>Hoogste punt</th>
-		<td>1566</td>
+		<td>1493</td>
 		<td>m</td>
 	</tr>
 	</tr>
 		<tr align="left">
 		<th>Gem.</th>
-		<td>7.1</td>
+		<td>6.2</td>
 		<td>%</td>
 	</tr>
 	<tr align="left">
 		<th>Klimpunten</th>
-		<td>628</td>
+		<td>682</td>
 		<td></td>
 	</tr>
 </table>
 
-> "Prachtige klim die nergens erg zwaar is. Fijne opwarmer voor de Galibier die erna komt!"
+![](https://climbfinder.com/CDN/col-saint-martin-col-colmiane-la-bouline.png)
 
-![](https://climbfinder.com/CDN/col-du-telegraphe.png)
-
-### [Col du Galibier](https://climbfinder.com/nl/beklimmingen/col-du-galibier-valloire)
+### [Col de Turini](https://climbfinder.com/nl/beklimmingen/col-de-turini-quartier-boutas)
 <table>
 	<tr align="left">
 		<th>Cat.</th>
-		<td>HC</td>
+		<td>1</td>
 		<td></td>
 	</tr>
 	<tr align="left">
 		<th>Afstand</th>
-		<td>17.5</td>
+		<td>15.2</td>
 		<td>km</td>
 	</tr>
 		<tr align="left">
 		<th>Hoogtemeters</th>
-		<td>1213</td>
+		<td>1102</td>
 		<td>m</td>
 	</tr>
 	</tr>
 		<tr align="left">
 		<th>Hoogste punt</th>
-		<td>2642</td>
+		<td>1604</td>
 		<td>m</td>
 	</tr>
 	</tr>
 		<tr align="left">
 		<th>Gem.</th>
-		<td>6.9</td>
+		<td>7.2</td>
 		<td>%</td>
 	</tr>
 	<tr align="left">
 		<th>Klimpunten</th>
-		<td>933</td>
+		<td>844</td>
 		<td></td>
 	</tr>
 </table>
 
-> "Vertrek vanuit Valloire, het gedeelte tussen dit dorp en Plan Lachat is lang, recht, maar op een correcte helling. Het tweede deel is veel moeilijker, met een reeks switchbacks en een steilere helling op meer dan 2.000 m, waar het verstand op dit punt in het spel komt. De prachtige landschappen, de mineraliteit die in het laatste stuk uit deze pas tevoorschijn komt, maken dat je je heel klein voelt. Een klassieker!"
+> "Landschappelijk zeker zo mooi als de Sospelzijde. Met oeroude Kastanjebomen die een haag vormen als toeschouwer. Voor mij persoonlijk is dit de mooiste col van Frankrijk. Maar dat komt omdat ik vooral graag om me heen kijk inplaats alleen maar naar mijn polsen op het stuur."
 
-![](https://climbfinder.com/CDN/col-du-galibier-valloire.png)
-
-
+![](https://climbfinder.com/CDN/col-de-turini-quartier-boutas.png)
 

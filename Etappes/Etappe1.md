@@ -47,6 +47,12 @@
 	</tr>
 	</tr>
 		<tr align="left">
+		<th>Hoogste punt</th>
+		<td>1164</td>
+		<td>m</td>
+	</tr>
+	</tr>
+		<tr align="left">
 		<th>Gem.</th>
 		<td>4</td>
 		<td>%</td>

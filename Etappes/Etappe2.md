@@ -47,6 +47,12 @@
 	</tr>
 	</tr>
 		<tr align="left">
+		<th>Hoogste punt</th>
+		<td>1613</td>
+		<td>m</td>
+	</tr>
+	</tr>
+		<tr align="left">
 		<th>Gem.</th>
 		<td>6.9</td>
 		<td>%</td>
@@ -78,6 +84,12 @@ Bijzonder is het dat hoewel je de top op een dikke 1600 meter hebt liggen, deze 
 		<tr align="left">
 		<th>Hoogtemeters</th>
 		<td>876</td>
+		<td>m</td>
+	</tr>
+	</tr>
+		<tr align="left">
+		<th>Hoogste punt</th>
+		<td>1487</td>
 		<td>m</td>
 	</tr>
 	</tr>

@@ -47,6 +47,12 @@
 	</tr>
 	</tr>
 		<tr align="left">
+		<th>Hoogste punt</th>
+		<td>1654</td>
+		<td>m</td>
+	</tr>
+	</tr>
+		<tr align="left">
 		<th>Gem.</th>
 		<td>5.2</td>
 		<td>%</td>
@@ -75,6 +81,12 @@
 		<tr align="left">
 		<th>Hoogtemeters</th>
 		<td>1245</td>
+		<td>m</td>
+	</tr>
+	</tr>
+		<tr align="left">
+		<th>Hoogste punt</th>
+		<td>1968</td>
 		<td>m</td>
 	</tr>
 	</tr>
