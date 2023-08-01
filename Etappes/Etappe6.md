@@ -26,6 +26,8 @@
   </tr>
 </table>
 
+- Meeste klimpunten van alle etappes.
+
 ## Cols
 
 ### [Col d'Izoard](https://climbfinder.com/nl/beklimmingen/col-d-izoard-briancon)

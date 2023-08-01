@@ -64,6 +64,9 @@
 	</tr>
 </table>
 
+- Meeste klimpunten van alle cols. 
+- Hoogste punt van de RDGA.
+
 > "De klim is een echte reis, waar je in Jausier al echt de zuidelijke invloeden voelt en waar het regelmatig erg warm is, daar is het op de top echt hooggebergte. Je kunt hier zomaar in een sneeuwstorm zitten, zelfs in de zomer. De klim begint gemoedelijk op een brede en zeer overzichtelijke weg. De steilte hangt wel meteen rond de 7 procent, zonder verrassingen rijd je omhoog. Een mooi dorpje, mooie weilanden, een snelstromende beek, rotspartijen en opeens een paar steile haarspeldbochten. Je kijkt je ogen uit."
 
 > "De mooiste klim van Europa. Met stipt. Waarbij je de eerste kilometers lekker langs wat Franse huisjes rijdt, kom je op gegeven moment in een bos. Dit bos duurt maar kort. Hierna kom je langs grote rotswanden, waar het zelfs even vlak is. Hierna begin kom je aan een opeenstapeling van haarspeldbochten in de open weide. De stijgingspercentages worden nergens echt hoog, maar het is de lengte en hoogte van de klim die het lastig maken. Nadat je de marmotten gespot heb in de open weide, kom je de laatste kilometers letterlijk door een maanlandschap. Zelden zo iets indrukwekkends gezien, geweldige vergezichten tot Italië"

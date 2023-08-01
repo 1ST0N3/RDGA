@@ -26,6 +26,8 @@
   </tr>
 </table>
 
+- Langste etappe.
+
 ## Cols
 
 ### [Col de l'Iseran](https://climbfinder.com/nl/beklimmingen/col-de-l-iseran-bourg-saint-maurice)
