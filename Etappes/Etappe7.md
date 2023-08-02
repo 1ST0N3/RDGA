@@ -26,6 +26,8 @@
   </tr>
 </table>
 
+Na Col de la Bonette eten inslaan, weinig supers in de buurt. Leeg dal.
+
 ## Cols
 
 ### [Col de la Bonette](https://climbfinder.com/nl/beklimmingen/col-de-la-bonette-jausiers)
