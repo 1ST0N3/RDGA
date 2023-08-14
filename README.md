@@ -14,7 +14,7 @@ Vakantie 14-08-2023 <--> 01-09-2023
   </tr>
   <tr align="left">
     <th>Daling</th>
-    <td>2740</td>
+    <td>18270</td>
     <td>m</td>
   </tr>
   <tr align="left">
