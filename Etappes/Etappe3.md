@@ -106,4 +106,4 @@
 
 > "Na zo'n 12 kilometer zonder rust kom je naast het grote stuwmeer van Roseland uit. Hier kun je even ademhalen, want de weg gaat naar beneden voordat je de finale inrijdt. Want de laatste kilometers zijn verdomt zwaar. Vanaf dit punt heb je geen schaduw meer en rij je aangestaard door koeien de laatste steile meters omhoog. Wie in de laatste haarspeldbochten tijd en zin heeft om rond te kijken zal kunnen genieten van een fantastisch uitzicht op de Mont Blanc trots boven de groene weides uitsteekt."
 
-![](https://climbfinder.com/CDN/col-de-la-colombiere-scionzier.png)
+![](https://climbfinder.com/CDN/cormet-de-roselend.png)
