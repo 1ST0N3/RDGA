@@ -1,0 +1,237 @@
+{
+	"Adsteeg": {
+		"lat": 50.932,
+		"lon": 5.799,
+		"cat": "4"
+	},
+	"Alpe d'Huez": {
+		"lat": 45.095,
+		"lon": 6.071,
+		"cat": "HC"
+	},
+	"Col d'Aspin": {
+		"lat": 42.942,
+		"lon": 0.328,
+		"cat": "2"
+	},
+	"Col d'Aubisque": {
+		"lat": 42.977,
+		"lon": -0.34,
+		"cat": "HC"
+	},
+	"Col d'Izoard": {
+		"lat": 44.820,
+		"lon": 6.735,
+		"cat": "1"
+	},
+	"Col de Castillon": {
+		"lat": 43.839,
+		"lon": 7.46,
+		"cat": "3"
+	},
+	"Col de la Colombière": {
+		"lat": 45.992,
+		"lon": 6.476,
+		"cat": "HC"
+	},
+	"Col de la Bonette": {
+		"lat": 44.320,
+		"lon": 6.807,
+		"cat": "HC"
+	},
+	"Col de l'Iseran": {
+		"lat": 45.417,
+		"lon": 7.031,
+		"cat": "HC"
+	},
+	"Col de Turini": {
+		"lat": 43.978,
+		"lon": 7.392,
+		"cat": "1"
+	},
+	"Col de Vars": {
+		"lat": 44.539,
+		"lon": 6.703,
+		"cat": "1"
+	},
+	"Col des Aravis": {
+		"lat": 45.872,
+		"lon": 6.465,
+		"cat": "2"
+	},
+	"Col des Saisies": {
+		"lat": 45.760,
+		"lon": 6.534,
+		"cat": "2"
+	},
+	"Col du Galibier": {
+		"lat": 45.064,
+		"lon": 6.408,
+		"cat": "HC"
+	},
+	"Col du Glandon": {
+		"lat": 45.24,
+		"lon": 6.176,
+		"cat": "HC"
+	},
+	"Col du Télégraphe": {
+		"lat": 45.203,
+		"lon": 6.444,
+		"cat": "1"
+	},
+	"Col Saint-Martin": {
+		"lat": 44.072,
+		"lon": 7.221,
+		"cat": "1"
+	},
+	"Cormet de Roseland": {
+		"lat": 45.691,
+		"lon": 6.691,
+		"cat": "HC"
+	},
+	"Bemelerberg": {
+		"lat": 50.845,
+		"lon": 5.773,
+		"cat": "4"
+	},
+	"Bergseweg": {
+		"lat": 50.854,
+		"lon": 5.945,
+		"cat": "4"
+	},
+	"Brocon": {
+		"lat": 46.119,
+		"lon": 11.689,
+		"cat": "1"
+	},
+	"Bukel": {
+		"lat": 50.795,
+		"lon": 5.765,
+		"cat": "4"
+	},
+	"Camerig": {
+		"lat": 50.765,
+		"lon": 5.96,
+		"cat": "4"
+	},
+	"Cauberg": {
+		"lat": 50.86,
+		"lon": 5.823,
+		"cat": "4"
+	},
+	"Eyserbosweg": {
+		"lat": 50.831,
+		"lon": 5.926,
+		"cat": "4"
+	},
+	"Fromberg": {
+		"lat": 50.851,
+		"lon": 5.896,
+		"cat": "4"
+	},
+	"Geulhemmerberg": {
+		"lat": 50.864,
+		"lon": 5.777,
+		"cat": "4"
+	},
+	"Heiweg": {
+		"lat": 50.773,
+		"lon": 5.748,
+		"cat": "4"
+	},
+	"Hellebeuk": {
+		"lat": 50.881,
+		"lon": 5.862,
+		"cat": "4"
+	},
+	"Hommert": {
+		"lat": 50.933,
+		"lon": 5.914,
+		"cat": "4"
+	},
+	"Hulsberg": {
+		"lat": 50.842,
+		"lon": 5.976,
+		"cat": "4"
+	},
+	"Keunestraat": {
+		"lat": 50.828,
+		"lon": 5.771,
+		"cat": "4"
+	},
+	"Keutenberg": {
+		"lat": 50.836,
+		"lon": 5.87,
+		"cat": "4"
+	},
+	"Koulenberg": {
+		"lat": 50.866,
+		"lon": 5.879,
+		"cat": "4"
+	},
+	"Kruisberg": {
+		"lat": 50.818,
+		"lon": 5.943,
+		"cat": "4"
+	},
+	"Lange Raarberg": {
+		"lat": 50.886,
+		"lon": 5.776,
+		"cat": "4"
+	},
+	"Les Gets": {
+		"lat": 46.160,
+		"lon": 6.669,
+		"cat": "3"
+	},
+	"Loorberg": {
+		"lat": 50.774,
+		"lon": 5.873,
+		"cat": "4"
+	},
+	"Maasberg": {
+		"lat": 50.941,
+		"lon": 5.757,
+		"cat": "4"
+	},
+	"Passo Gobbera": {
+		"lat": 46.148,
+		"lon": 11.758,
+		"cat": "3"
+	},
+	"Passo Manghen": {
+		"lat": 46.175,
+		"lon": 11.439,
+		"cat": "HC"
+	},
+	"Passo Rolle": {
+		"lat": 46.296,
+		"lon": 11.786,
+		"cat": "1"
+	},
+	"Tourmalet": {
+		"lat": 42.908,
+		"lon": 0.145,
+		"cat": "HC"
+	},
+	"Schweiberg": {
+		"lat": 50.773,
+		"lon": 5.885,
+		"cat": "4"
+	},
+	"Soulor": {
+		"lat": 42.961,
+		"lon": -0.261,
+		"cat": "HC"
+	},
+	"Sweikhuizerberg": {
+		"lat": 50.952,
+		"lon": 5.855,
+		"cat": "4"
+	},
+	"Vaalserberg": {
+		"lat": 50.758,
+		"lon": 6.017,
+		"cat": "4"
+	}
+}

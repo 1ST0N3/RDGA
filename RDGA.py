@@ -15,9 +15,11 @@ import os
 import pickle
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from GPX import GPX
 from FoliumClass import FoliumClass
+from Modules.socialPlot import createElevPlotInsta, createSocialPlot
 
 def add_Campings(fol):
     campingData = pd.read_csv("Data/campings.csv",delimiter=";")
@@ -211,8 +213,56 @@ if __name__ == '__main__':
 
     data_source = "Route/"
     gpx_obj_lst = load_folder_data(data_source, use_cache=True)
-
     draw_on_map_folium(gpx_obj_lst, save_name="RDGA")
+
+    data_source = "Data/StravaGPX/"
+    gpx_obj_lst = load_folder_data(data_source, use_cache=True)
+
+    offsets = {"3:" : [-6000,0],
+               "4:" : [-6000,0],
+               "6:" : [ 6000,0],
+               "7:" : [ 3000,0],
+               "8:" : [ 1500,-500]
+              }
+
+    # for obj in gpx_obj_lst:
+    for obj in [gpx_obj_lst[8]]:
+        print(obj.name)
+
+        if obj.name.split(" ")[2] in offsets.keys():
+            offset = offsets[obj.name.split(" ")[2]]
+        else:
+            offset = None
+
+        createSocialPlot(obj,offset)
+        # createElevPlotInsta(obj)
+
+    from PIL import Image
+    import re
+
+    def atoi(text):
+        return int(text) if text.isdigit() else text
+
+    def natural_keys(text):
+        return [ atoi(c) for c in re.split(r'(\d+)', text) ]
+
+    images = os.listdir("Output/Maps/")
+    images.sort(key=natural_keys)
+
+    images = [Image.open("Output/Maps/"+x) for x in images if ".png" in x]
+    widths, heights = zip(*(i.size for i in images))
+
+    total_width = sum(widths)
+    max_height = max(heights)
+
+    new_im = Image.new('RGB', (total_width, max_height))
+
+    x_offset = 0
+    for im in images:
+        new_im.paste(im, (x_offset,0))
+        x_offset += im.size[0]
+
+    new_im.save('test.png')
 
     print("Done")
 
