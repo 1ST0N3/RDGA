@@ -215,24 +215,34 @@ if __name__ == '__main__':
     gpx_obj_lst = load_folder_data(data_source, use_cache=True)
     draw_on_map_folium(gpx_obj_lst, save_name="RDGA")
 
-    data_source = "Data/StravaGPX/"
+    data_source = "Data/StravaGPX_etappes/"
     gpx_obj_lst = load_folder_data(data_source, use_cache=True)
 
-    offsets = {"3:" : [-6000,0],
-               "4:" : [-6000,0],
-               "6:" : [ 6000,0],
-               "7:" : [ 3000,0],
-               "8:" : [ 1500,-500]
-              }
+    offsets_etappes = {"3:" : [-6000,0],
+                       "4:" : [-6000,0],
+                       "6:" : [ 6000,0],
+                       "7:" : [ 3000,0],
+                       "8:" : [ 1500,-500]
+                      }
+    
+    offsets_rustdag = {"1:" : [-3000,0],
+                       "2:" : [3000,0]
+                      }
 
-    # for obj in gpx_obj_lst:
-    for obj in [gpx_obj_lst[8]]:
+    for obj in gpx_obj_lst:
+    # for obj in [gpx_obj_lst[8]]:
         print(obj.name)
 
-        if obj.name.split(" ")[2] in offsets.keys():
-            offset = offsets[obj.name.split(" ")[2]]
-        else:
-            offset = None
+        if "Etappe" in obj.name:
+            if obj.name.split(" ")[2] in offsets_etappes.keys():
+                offset = offsets_etappes[obj.name.split(" ")[2]]
+            else:
+                offset = None
+        if "rustdag" in obj.name:
+            if obj.name.split(" ")[2] in offsets_rustdag.keys():
+                offset = offsets_rustdag[obj.name.split(" ")[2]]
+            else:
+                offset = None
 
         createSocialPlot(obj,offset)
         # createElevPlotInsta(obj)

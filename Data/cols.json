@@ -9,6 +9,11 @@
 		"lon": 6.071,
 		"cat": "HC"
 	},
+	"Col Agnel": {
+		"lat": 44.684,
+		"lon": 6.980,
+		"cat": "HC"
+	},
 	"Col d'Aspin": {
 		"lat": 42.942,
 		"lon": 0.328,
@@ -59,9 +64,19 @@
 		"lon": 6.465,
 		"cat": "2"
 	},
+	"Col des Gets": {
+		"lat": 46.160,
+		"lon": 6.669,
+		"cat": "3"
+	},
 	"Col des Saisies": {
 		"lat": 45.760,
 		"lon": 6.534,
+		"cat": "2"
+	},
+	"Col du Mont Cenis": {
+		"lat": 45.260,
+		"lon": 6.901,
 		"cat": "2"
 	},
 	"Col du Galibier": {
@@ -73,6 +88,11 @@
 		"lat": 45.24,
 		"lon": 6.176,
 		"cat": "HC"
+	},
+	"Col du Petit Saint-Bernard": {
+		"lat": 45.680,
+		"lon": 6.883,
+		"cat": "1"
 	},
 	"Col du Télégraphe": {
 		"lat": 45.203,
@@ -178,11 +198,6 @@
 		"lat": 50.886,
 		"lon": 5.776,
 		"cat": "4"
-	},
-	"Les Gets": {
-		"lat": 46.160,
-		"lon": 6.669,
-		"cat": "3"
 	},
 	"Loorberg": {
 		"lat": 50.774,

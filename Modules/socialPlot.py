@@ -33,11 +33,12 @@ def createSocialPlot(g,offset=None):
     add_basemap(ax_rte)
     add_cols(df,ax_rte,ax_elv)
 
-    path = "Output/Maps/"
+    path = "Output/Figures/"+g.name+"/"
+    path = path.replace(">","")
+    path = path.replace(":","")
     checkDir(path)
-    saveAs = path+g.name+".png"
-    saveAs = saveAs.replace(">","")
-    saveAs = saveAs.replace(":","")
+    saveAs = path+"socialPlot.png"
+
     fig.savefig(saveAs, bbox_inches='tight', pad_inches=0)
     plt.close()
 
@@ -230,7 +231,7 @@ def add_text(fig,g,ax_rte,ax_elv):
             ha = "center",
             zorder=6)
 
-    ax_elv.text(0.80,0.06,"Elevation",transform = ax_elv.transAxes,
+    ax_elv.text(0.80,0.06,"Elevation gain",transform = ax_elv.transAxes,
             fontsize=20,
             color = "white",
             ha = "center",
@@ -239,6 +240,8 @@ def add_text(fig,g,ax_rte,ax_elv):
 def add_basemap(ax_rte):
     # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.CartoDB.DarkMatter)
     cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Stamen.Terrain,zorder=0)
+    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Esri.WorldImagery,zorder=0)
+    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0)
 
 def add_cols(df,ax_rte=None,ax_elv=None):
 
