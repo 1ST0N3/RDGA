@@ -2,8 +2,7 @@ import contextily as cx
 import pandas as pd
 import matplotlib.patches as mpatches
 from matplotlib import pyplot as plt
-from HandyFunctions import haversine
-from HandyFunctions import *
+from handyFunctions import *
 from pyproj import Transformer
 from json import loads
 from PIL import Image
@@ -21,7 +20,7 @@ def createSocialPlot(g,offset=None):
     h_elv       = 40
 
     fig = plt.figure(figsize=(14.4,14.4))
-    fig.subplots_adjust(top = 1, bottom = 0, right = 1, left = 0, 
+    fig.subplots_adjust(top = 1, bottom = 0, right = 1, left = 0,
         hspace = 0, wspace = 0)
     gs = fig.add_gridspec(gridsize,1,wspace=0, hspace=0,width_ratios=[1])
 
@@ -39,7 +38,7 @@ def createSocialPlot(g,offset=None):
     checkDir(path)
     saveAs = path+"socialPlot.png"
 
-    fig.savefig(saveAs, bbox_inches='tight', pad_inches=0)
+    # fig.savefig(saveAs, bbox_inches='tight', pad_inches=0)
     plt.close()
 
 def transCoords(lat,lon):
@@ -49,7 +48,7 @@ def add_rte(g,fig,gs,h_rte,offset=None):
     df = g.df
     lat = df.lat
     lon = df.lon
-    
+
     ax_rte = fig.add_subplot(gs[:h_rte, 0],zorder=0)
     ax_rte.patch.set_alpha(0.0)
     l = ax_rte.plot(df.x,df.y,color="black",lw=2)
@@ -75,11 +74,11 @@ def add_rte(g,fig,gs,h_rte,offset=None):
 
         upper = yRange*u/(1-u-l)
         lower = yRange*l/(1-u-l)
-        
+
         xlim = [min(df.x)-0.05*xRange,max(df.x)+0.05*xRange]
         xLimRange = xlim[1] - xlim[0]
         yMean = (min(df.y) + 0.75*(max(df.y)-min(df.y))/2)
-       
+
         # ylim = [max(df.y) - xLimRange,max(df.y) + upper]
         ylim = [yMean-xLimRange/2,yMean+xLimRange/2]
 
@@ -95,7 +94,7 @@ def add_rte(g,fig,gs,h_rte,offset=None):
 
     ax_rte.set(xlim=xlim, ylim=ylim)
     ax_rte.axis('off')
-    
+
     return ax_rte
 
 def add_elev_profile(fig,gs,gridsize,df,ax_rte,h_elv,h_rte):
@@ -126,11 +125,11 @@ def add_elev_profile(fig,gs,gridsize,df,ax_rte,h_elv,h_rte):
 def add_start_end(ax_rte,df):
     coveredDist = haversine(df[["lat","lon"]].iloc[0],
                             df[["lat","lon"]].iloc[-1])
-    
+
     lat = df.lat
     lon = df.lon
     x,y = transCoords(lat,lon)
-    
+
     if coveredDist < 100:
         ax_rte.scatter(x[0],y[0],color="red",zorder=10,s=100)
         ax_rte.scatter(x[0],y[0],color="green",zorder=10,s=20)
@@ -152,14 +151,14 @@ def add_text(fig,g,ax_rte,ax_elv):
                 va = "center",
                 ha = "left",
                 zorder=6)
-        
+
         ax_rte.text(0.545,0.96, "GOLD",transform = ax_rte.transAxes,
                 fontsize=fs,
                 color = (248/255,156/255,14/255),
                 va = "center",
                 ha = "center",
                 zorder=6)
-        
+
         ax_rte.text(0.86,0.96, "RACE",transform = ax_rte.transAxes,
                 fontsize=fs,
                 color = (0/255,0/255,00/255),
@@ -167,7 +166,7 @@ def add_text(fig,g,ax_rte,ax_elv):
                 ha = "right",
                 zorder=6)
     else:
-        
+
         from matplotlib.patches import BoxStyle
         boxstyle = BoxStyle("Round", pad=1)
         props = {'boxstyle': boxstyle}
@@ -197,7 +196,7 @@ def add_text(fig,g,ax_rte,ax_elv):
             color = "white",
             ha = "center",
             zorder=6)
-    
+
     # # Average
     # ax_elv.text(0.5,0.14,str(round(df.totDist.iloc[-1]/df.movingTime.iloc[-1]*3.6,1)) + " km/h",transform = ax_elv.transAxes,
     #         fontsize=25,
@@ -210,7 +209,7 @@ def add_text(fig,g,ax_rte,ax_elv):
     #         color = "white",
     #         ha = "center",
     #         zorder=6)
-    
+
     # Moving time
     ax_elv.text(0.5,0.14,str(datetime.timedelta(seconds=df.movingTime.iloc[-1])),transform = ax_elv.transAxes,
             fontsize=25,
@@ -224,7 +223,7 @@ def add_text(fig,g,ax_rte,ax_elv):
             ha = "center",
             zorder=6)
 
-    # Elevation Gain 
+    # Elevation Gain
     ax_elv.text(0.80,0.13,str(round(g.elevationGain)) + " m",transform = ax_elv.transAxes,
             fontsize=25,
             color = "white",
@@ -239,14 +238,14 @@ def add_text(fig,g,ax_rte,ax_elv):
 
 def add_basemap(ax_rte):
     # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.CartoDB.DarkMatter)
-    cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Stamen.Terrain,zorder=0)
+    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Stadia.StamenTerrain,zorder=0)
     # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Esri.WorldImagery,zorder=0)
-    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0)
+    cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0)
 
 def add_cols(df,ax_rte=None,ax_elv=None):
 
     # pointsProfile   = allPoints[(abs(allPoints.totDist.diff()) > 1E3) | (allPoints.totDist.diff().isnull())]
-    
+
     allPoints = get_cols(df)
     pointsMap           = allPoints.drop_duplicates(subset=["name"])
     labels = []
@@ -290,7 +289,7 @@ def add_cols(df,ax_rte=None,ax_elv=None):
         if len(allPoints) > 6:
             h,l = ax_elv.get_legend_handles_labels()
             ax_rte.legend(h,l,loc="right",markerscale=0.5,fontsize=8.5,bbox_to_anchor=(1.006,0.607),labelcolor="white",facecolor = 'black')
-    
+
     return allPoints
 
 def get_cols(df):
@@ -324,7 +323,7 @@ def getPeak(df,peak,colname,range=0.002):
     for i,point in points.iterrows():
         if len(df_new) == 0 or sum((point.totDist-3E3 < df_new.totDist) & (df_new.totDist < point.totDist+3E3)) == 0:
             df_new.loc[len(df_new)] = point
-    
+
     df_new["cat"] = peak["cat"]
     df_new["name"] = colname
 
@@ -353,7 +352,7 @@ def createElevPlotInsta(obj):
         ax.scatter(col.totDist,y,color="white",s=1200,zorder=2,edgecolor='black', linewidth=1,label = str(col["cat"]) + " : " + col["name"])
         l = ax.text(col.totDist,y,col["cat"],va="center_baseline",ha="center",zorder=2,label = col["name"],fontsize=fontsize)
         ax.plot([col.totDist,col.totDist],[y,col.alt],ls="--",color="black",lw=1,zorder=1)
-    
+
         l = ax.text(col.totDist,y,"    " + col["name"],
                     fontsize=fontsize,
                     va="center_baseline",
@@ -363,7 +362,7 @@ def createElevPlotInsta(obj):
                     rotation_mode="anchor",
                     color = "white",
                     bbox=dict(facecolor='#2a2c30',pad=5,boxstyle='round,pad=0.2'))
-        
+
 
     im = Image.open('Data/Icons/mountain.png')
     height = im.size[1]

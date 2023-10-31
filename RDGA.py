@@ -4,7 +4,7 @@ Stijn van Selling
 -------------------------PROGRAM TO ANALYSE GPS DATA-------------------------
 
 Since every item in the list is documented like this:
-    
+
     <trkpt lat="47.0128540" lon="10.2943180">
     <ele>1354.48</ele>
     <time>2018-02-10T08:31:29.998+01:00</time>
@@ -136,7 +136,7 @@ def draw_on_map_folium(obj_lst, save_name="Strava_folium.html"):
             startPop  = "Start RGDA"
             finishPop = "Finish RGDA"
             popup = "<b>" + obj.name + "</b>"
-            
+
         fol.plot(obj.df[["lat","lon"]],color=col,group_name=obj.name,opacity=alpha,popup=popup)
         fol.scatter(obj.df[["lat","lon"]].iloc[0],color="blue",group_name=obj.name,popup=[startPop])
         fol.scatter(obj.df[["lat","lon"]].iloc[-1],color="green",group_name=obj.name,popup=[finishPop])
@@ -224,7 +224,7 @@ if __name__ == '__main__':
                        "7:" : [ 3000,0],
                        "8:" : [ 1500,-500]
                       }
-    
+
     offsets_rustdag = {"1:" : [-3000,0],
                        "2:" : [3000,0]
                       }
