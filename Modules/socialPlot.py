@@ -24,13 +24,15 @@ def createSocialPlot(g,offset=None):
         hspace = 0, wspace = 0)
     gs = fig.add_gridspec(gridsize,1,wspace=0, hspace=0,width_ratios=[1])
 
-    ax_rte = add_rte(g,fig,gs,h_rte,offset)
+    ax_rte,xlim,ylim = add_rte(g,fig,gs,h_rte,offset)
     ax_elv = add_elev_profile(fig,gs,gridsize,df,ax_rte,h_elv,h_rte)
 
     add_start_end(ax_rte,df)
     add_text(fig,g,ax_rte,ax_elv)
-    add_basemap(ax_rte)
     add_cols(df,ax_rte,ax_elv)
+    add_Inset(ax_rte,xlim,ylim)
+
+    add_basemap(ax_rte)
 
     path = "Output/Figures/"+g.name+"/"
     path = path.replace(">","")
@@ -38,7 +40,7 @@ def createSocialPlot(g,offset=None):
     checkDir(path)
     saveAs = path+"socialPlot.png"
 
-    # fig.savefig(saveAs, bbox_inches='tight', pad_inches=0)
+    fig.savefig(saveAs, bbox_inches='tight', pad_inches=0)
     plt.close()
 
 def transCoords(lat,lon):
@@ -95,7 +97,7 @@ def add_rte(g,fig,gs,h_rte,offset=None):
     ax_rte.set(xlim=xlim, ylim=ylim)
     ax_rte.axis('off')
 
-    return ax_rte
+    return ax_rte,xlim,ylim
 
 def add_elev_profile(fig,gs,gridsize,df,ax_rte,h_elv,h_rte):
     ax_elv = fig.add_subplot(gs[(gridsize-h_elv): , 0],zorder=1)
@@ -166,11 +168,6 @@ def add_text(fig,g,ax_rte,ax_elv):
                 ha = "right",
                 zorder=6)
     else:
-
-        from matplotlib.patches import BoxStyle
-        boxstyle = BoxStyle("Round", pad=1)
-        props = {'boxstyle': boxstyle}
-
         title = g.name
         title = title.replace("->",u"\u2192")
 
@@ -238,9 +235,12 @@ def add_text(fig,g,ax_rte,ax_elv):
 
 def add_basemap(ax_rte):
     # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.CartoDB.DarkMatter)
-    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Stadia.StamenTerrain,zorder=0)
+
+    src = cx.providers.Stadia.StamenTerrain
+    src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
+    cx.add_basemap(ax_rte, crs="EPSG:3395",source=src,zorder=0)
     # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Esri.WorldImagery,zorder=0)
-    cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0)
+    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0)
 
 def add_cols(df,ax_rte=None,ax_elv=None):
 
@@ -328,6 +328,34 @@ def getPeak(df,peak,colname,range=0.002):
     df_new["name"] = colname
 
     return df_new
+
+def add_Inset(ax_rte,xlim,ylim):
+    # xrange = xlim[1]-xlim[0]
+    # yrange = ylim[1]-ylim[0]
+
+    zoom = 15
+    # xlimCust = [xlim[0]-zoom*xrange,xlim[1]+zoom*xrange]
+    # ylimCust = [ylim[0]-zoom*yrange,ylim[1]+zoom*yrange]
+
+    xlimCust = [600000, 1000000]
+    ylimCust = [5342020,5862488]
+
+    ax_inset = ax_rte.inset_axes([0, 0.5, 0.4, 0.425], xlim=xlimCust, ylim=ylimCust, xticklabels=[], yticklabels=[])
+
+    # src = cx.providers.Stadia.StamenTerrain
+    # src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
+
+    src = cx.providers.CartoDB.DarkMatterNoLabels
+    src = cx.providers.CartoDB.PositronNoLabels
+    src = cx.providers.CartoDB.Positron
+    cx.add_basemap(ax_inset, crs="EPSG:3395",source=src,zorder=0)
+
+    ax_inset.texts[-1].remove()
+
+    ax_inset.plot([xlim[0],xlim[1],xlim[1],xlim[0],xlim[0]],
+                  [ylim[0],ylim[0],ylim[1],ylim[1],ylim[0]],color="k")
+
+    ax_inset.axis('off')
 
 def createElevPlotInsta(obj):
     fig,ax = plt.subplots(figsize=(14.4,14.4))
