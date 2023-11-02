@@ -21,16 +21,16 @@ def createSocialPlot(g,offset=None):
 
     fig = plt.figure(figsize=(14.4,14.4))
     fig.subplots_adjust(top = 1, bottom = 0, right = 1, left = 0,
-        hspace = 0, wspace = 0)
+                        hspace = 0, wspace = 0)
     gs = fig.add_gridspec(gridsize,1,wspace=0, hspace=0,width_ratios=[1])
 
     ax_rte,xlim,ylim = add_rte(g,fig,gs,h_rte,offset)
     ax_elv = add_elev_profile(fig,gs,gridsize,df,ax_rte,h_elv,h_rte)
+    add_Inset(ax_rte,xlim,ylim)
 
     add_start_end(ax_rte,df)
     add_text(fig,g,ax_rte,ax_elv)
     add_cols(df,ax_rte,ax_elv)
-    add_Inset(ax_rte,xlim,ylim)
 
     add_basemap(ax_rte)
 
@@ -143,7 +143,7 @@ def add_text(fig,g,ax_rte,ax_elv):
     df = g.df
     fs = 30
 
-    rect = mpatches.Rectangle([0,0.93],1,0.1,transform = ax_rte.transAxes,color="black",zorder=5)
+    rect = mpatches.Rectangle([0,0.93],1,0.07,transform = ax_rte.transAxes,color="black",zorder=5,lw=0)
     ax_rte.add_patch(rect)
 
     if "Amel" in g.name:
@@ -236,11 +236,11 @@ def add_text(fig,g,ax_rte,ax_elv):
 def add_basemap(ax_rte):
     # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.CartoDB.DarkMatter)
 
-    src = cx.providers.Stadia.StamenTerrain
-    src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
-    cx.add_basemap(ax_rte, crs="EPSG:3395",source=src,zorder=0)
+    # src = cx.providers.Stadia.StamenTerrain
+    # src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
+    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=src,zorder=0)
     # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.Esri.WorldImagery,zorder=0)
-    # cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0)
+    cx.add_basemap(ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0)
 
 def add_cols(df,ax_rte=None,ax_elv=None):
 
@@ -340,20 +340,25 @@ def add_Inset(ax_rte,xlim,ylim):
     xlimCust = [600000, 1000000]
     ylimCust = [5342020,5862488]
 
-    ax_inset = ax_rte.inset_axes([0, 0.5, 0.4, 0.425], xlim=xlimCust, ylim=ylimCust, xticklabels=[], yticklabels=[])
+    xRange = xlimCust[1] - xlimCust[0]
+    yRange = ylimCust[1] - ylimCust[0]
+
+    width = xRange/yRange*0.43
+
+    ax_inset = ax_rte.inset_axes([0, 0.5, width, 0.43], xlim=xlimCust, ylim=ylimCust, xticklabels=[], yticklabels=[])
 
     # src = cx.providers.Stadia.StamenTerrain
     # src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
 
-    src = cx.providers.CartoDB.DarkMatterNoLabels
-    src = cx.providers.CartoDB.PositronNoLabels
-    src = cx.providers.CartoDB.Positron
-    cx.add_basemap(ax_inset, crs="EPSG:3395",source=src,zorder=0)
-
-    ax_inset.texts[-1].remove()
-
+    # src = cx.providers.CartoDB.DarkMatterNoLabels
+    # src = cx.providers.CartoDB.PositronNoLabels
     ax_inset.plot([xlim[0],xlim[1],xlim[1],xlim[0],xlim[0]],
                   [ylim[0],ylim[0],ylim[1],ylim[1],ylim[0]],color="k")
+
+
+    src = cx.providers.CartoDB.Positron
+    cx.add_basemap(ax_inset, crs="EPSG:3395",source=src,zorder=0)
+    ax_inset.texts[-1].remove()
 
     ax_inset.axis('off')
 
