@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 
 from GPX import GPX
 from FoliumClass import FoliumClass
-from Modules.socialPlot import createElevPlotInsta, createSocialPlot
+from Modules.socialPlot import SocialPlot, createElevPlotInsta
 
 def add_Campings(fol):
     campingData = pd.read_csv("Data/campings.csv",delimiter=";")
@@ -218,33 +218,58 @@ if __name__ == '__main__':
     data_source = "Data/StravaGPX_etappes/"
     gpx_obj_lst = load_folder_data(data_source, use_cache=True)
 
-    offsets_etappes = {"3:" : [-6000,0],
-                       "4:" : [-6000,0],
-                       "6:" : [ 6000,0],
-                       "7:" : [ 3000,0],
-                       "8:" : [ 1500,-500]
+    etappeSpecific =  {
+        "3" : {
+            "offset"        : [-6000,0],
+            "insetPosition" : ["right",None]
+        },
+        "4" : {
+            "offset"        : [-6000,0]
+        },
+        "6" : {
+            "offset"        : [ 6000,0]
+        },
+        "7" : {
+            "offset"        : [ 3000,0]
+        },
+        "8" : {
+            "offset"        : [ 1500,-500],
+            "insetPosition" : ["left",0.2]
+        },
+        "10" : {
+            "offset"        : [ -6000,0],
+            "insetPosition" : ["right",0.2]
+        }
+    }
+    # TODO, convert to df
+
+
+    offsets_rustdag = {"1" : [-3000,0],
+                       "2" : [3000,0]
                       }
 
-    offsets_rustdag = {"1:" : [-3000,0],
-                       "2:" : [3000,0]
-                      }
-
-    for obj in gpx_obj_lst:
+    for obj in gpx_obj_lst[4:]:
     # for obj in [gpx_obj_lst[8]]:
         print(obj.name)
+        legNumber = obj.name.split(" ")[2][:-1]
 
         if "Etappe" in obj.name:
-            if obj.name.split(" ")[2] in offsets_etappes.keys():
-                offset = offsets_etappes[obj.name.split(" ")[2]]
-            else:
-                offset = None
-        if "rustdag" in obj.name:
-            if obj.name.split(" ")[2] in offsets_rustdag.keys():
-                offset = offsets_rustdag[obj.name.split(" ")[2]]
+            if legNumber in offsets_etappes.keys():
+                offset = offsets_etappes[legNumber]
             else:
                 offset = None
 
-        createSocialPlot(obj,offset)
+            if legNumber in inset_position_etappes.keys():
+                insetPosition = inset_position_etappes[legNumber]
+            else:
+                insetPosition = None
+        if "rustdag" in obj.name:
+            if legNumber in offsets_rustdag.keys():
+                offset = offsets_rustdag[legNumber]
+            else:
+                offset = None
+
+        SocialPlot(obj, offset, insetPosition)
         # createElevPlotInsta(obj)
 
     from PIL import Image
@@ -262,7 +287,9 @@ if __name__ == '__main__':
     images = [Image.open("Output/Maps/"+x) for x in images if ".png" in x]
     widths, heights = zip(*(i.size for i in images))
 
-    total_width = sum(widths)
+    linewidth = 10
+
+    total_width = sum(widths) + len(images) * linewidth
     max_height = max(heights)
 
     new_im = Image.new('RGB', (total_width, max_height))
@@ -270,7 +297,7 @@ if __name__ == '__main__':
     x_offset = 0
     for im in images:
         new_im.paste(im, (x_offset,0))
-        x_offset += im.size[0]
+        x_offset += im.size[0] + linewidth
 
     new_im.save('test.png')
 
