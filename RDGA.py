@@ -243,6 +243,11 @@ if __name__ == '__main__':
     }
     # TODO, convert to df
 
+    df = pd.DataFrame(columns = ["Etappe: " + str(i) for i in range(1,11)] + ["Rustdag: " + str(i) for i in range(1,5)],
+                      rows=["offset","insetPosition","zoom"])
+
+    df["Etappe: 3"]["offset"] = [-6000,0] # TODO might require x_offset,y_offset
+    df["Etappe: 3"]["insetPosition"] = ["right",None]
 
     offsets_rustdag = {"1" : [-3000,0],
                        "2" : [3000,0]
