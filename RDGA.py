@@ -219,16 +219,19 @@ if __name__ == '__main__':
     gpx_obj_lst = load_folder_data(data_source, use_cache=True)
 
     df = pd.DataFrame(columns = ["offset_x","offset_y","insetPosition_x","insetPosition_y","zoom"])
-    df.loc["Etappe 3"]  =  {"offset_x" : -6000, "offset_y" :  0,"insetPosition_x" : "right"}
+    df.loc["Etappe 1"]  =  {"zoom" : 11 }
+    df.loc["Etappe 2"]  =  {"zoom" : 11 }
+    df.loc["Etappe 3"]  =  {"offset_x" : -6000, "offset_y" :  0,"insetPosition_x" : "right","zoom" : 11}
     df.loc["Etappe 4"]  =  {"offset_x" : -6000, "offset_y" :  0}
+    df.loc["Etappe 5"]  =  {"offset_x" : -6000, "offset_y" :  0}
     df.loc["Etappe 6"]  =  {"offset_x" :  6000}
     df.loc["Etappe 7"]  =  {"offset_x" :  3000}
-    df.loc["Etappe 8"]  =  {"offset_x" :  1500, "offset_y" : -500, "insetPosition_x" : "left", "insetPosition_y" : 0.2}
-    df.loc["Etappe 10"] =  {"offset_x" : -6000, "offset_y" :  0,"insetPosition_x" : "right", "insetPosition_y" : 0.2}
+    df.loc["Etappe 8"]  =  {"offset_x" :  1500, "offset_y" : -500, "insetPosition_x" : "left", "insetPosition_y" : 0.3, "zoom" : 12}
+    df.loc["Etappe 10"] =  {"offset_x" : -6000, "offset_y" :  0,"insetPosition_x" : "right"}
     df.loc["Rustdag 1"] =  {"offset_x" : -3000, "offset_y" :  0}
     df.loc["Rustdag 2"] =  {"offset_x" :  3000, "offset_y" :  0}
 
-    for obj in gpx_obj_lst[4:]:
+    for obj in gpx_obj_lst:
         print(obj.name)
         legNumber = obj.name.split(" ")[2][:-1]
         dayType = "Etappe" if "Etappe" in obj.name else "Rustdag"

@@ -251,7 +251,11 @@ class SocialPlot():
         # src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
         # cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=src,zorder=0)
         # cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=cx.providers.Esri.WorldImagery,zorder=0)
-        cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0,zoom=11)
+        zoomlvl = 11
+        if self.ps is not None and not np.isnan(self.ps.zoom): zoomlvl = int(self.ps.zoom)
+
+
+        cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0,zoom=zoomlvl)
 
     def add_cols(self):
 
@@ -311,11 +315,11 @@ class SocialPlot():
 
         width = xRange/yRange*insetHeight
 
-        # topleft default pos
-        xpos = 0
+        # topright default pos
+        xpos = xpos = 1-width
         ypos = 0.5
 
-        if self.ps is not None and not np.isnan(self.ps.insetPosition_x) and self.ps.insetPosition_x == "right": xpos = 1-width
+        if self.ps is not None and self.ps.insetPosition_x == "left": xpos = 0
         if self.ps is not None and not np.isnan(self.ps.insetPosition_y): ypos = self.ps.insetPosition_y
 
         self.ax_inset = self.ax_rte.inset_axes([xpos, ypos, width, insetHeight], xlim=xlimCust, ylim=ylimCust, xticklabels=[], yticklabels=[])
