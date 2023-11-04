@@ -218,64 +218,27 @@ if __name__ == '__main__':
     data_source = "Data/StravaGPX_etappes/"
     gpx_obj_lst = load_folder_data(data_source, use_cache=True)
 
-    etappeSpecific =  {
-        "3" : {
-            "offset"        : [-6000,0],
-            "insetPosition" : ["right",None]
-        },
-        "4" : {
-            "offset"        : [-6000,0]
-        },
-        "6" : {
-            "offset"        : [ 6000,0]
-        },
-        "7" : {
-            "offset"        : [ 3000,0]
-        },
-        "8" : {
-            "offset"        : [ 1500,-500],
-            "insetPosition" : ["left",0.2]
-        },
-        "10" : {
-            "offset"        : [ -6000,0],
-            "insetPosition" : ["right",0.2]
-        }
-    }
-    # TODO, convert to df
-
-    df = pd.DataFrame(columns = ["Etappe: " + str(i) for i in range(1,11)] + ["Rustdag: " + str(i) for i in range(1,5)],
-                      rows=["offset","insetPosition","zoom"])
-
-    df["Etappe: 3"]["offset"] = [-6000,0] # TODO might require x_offset,y_offset
-    df["Etappe: 3"]["insetPosition"] = ["right",None]
-
-    offsets_rustdag = {"1" : [-3000,0],
-                       "2" : [3000,0]
-                      }
+    df = pd.DataFrame(columns = ["offset_x","offset_y","insetPosition_x","insetPosition_y","zoom"])
+    df.loc["Etappe 3"]  =  {"offset_x" : -6000, "offset_y" :  0,"insetPosition_x" : "right"}
+    df.loc["Etappe 4"]  =  {"offset_x" : -6000, "offset_y" :  0}
+    df.loc["Etappe 6"]  =  {"offset_x" :  6000}
+    df.loc["Etappe 7"]  =  {"offset_x" :  3000}
+    df.loc["Etappe 8"]  =  {"offset_x" :  1500, "offset_y" : -500, "insetPosition_x" : "left", "insetPosition_y" : 0.2}
+    df.loc["Etappe 10"] =  {"offset_x" : -6000, "offset_y" :  0,"insetPosition_x" : "right", "insetPosition_y" : 0.2}
+    df.loc["Rustdag 1"] =  {"offset_x" : -3000, "offset_y" :  0}
+    df.loc["Rustdag 2"] =  {"offset_x" :  3000, "offset_y" :  0}
 
     for obj in gpx_obj_lst[4:]:
-    # for obj in [gpx_obj_lst[8]]:
         print(obj.name)
         legNumber = obj.name.split(" ")[2][:-1]
+        dayType = "Etappe" if "Etappe" in obj.name else "Rustdag"
 
-        if "Etappe" in obj.name:
-            if legNumber in offsets_etappes.keys():
-                offset = offsets_etappes[legNumber]
-            else:
-                offset = None
+        if dayType in obj.name and dayType+" "+legNumber in df.index:
+            plotSpecs = df.loc[dayType+" "+legNumber]
+        else:
+            plotSpecs = None
 
-            if legNumber in inset_position_etappes.keys():
-                insetPosition = inset_position_etappes[legNumber]
-            else:
-                insetPosition = None
-        if "rustdag" in obj.name:
-            if legNumber in offsets_rustdag.keys():
-                offset = offsets_rustdag[legNumber]
-            else:
-                offset = None
-
-        SocialPlot(obj, offset, insetPosition)
-        # createElevPlotInsta(obj)
+        SocialPlot(obj, plotSpecs)
 
     from PIL import Image
     import re

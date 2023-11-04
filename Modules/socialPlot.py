@@ -11,12 +11,11 @@ import datetime
 
 class SocialPlot():
 
-    def __init__(self,g,offset=None,insetPostion=None):
+    def __init__(self,g,plotSpecs=None):
         self.name           = g.name
         self.df             = g.df
         self.elevationGain  = g.elevationGain
-        self.offset         = offset
-        self.insetPosition  = insetPostion
+        self.ps             = plotSpecs
 
         x,y = transCoords(self.df.lat,self.df.lon)
         self.df["x"] = x
@@ -95,9 +94,8 @@ class SocialPlot():
             xRange = self.xlim[1] - self.xlim[0]
             self.xlim = [self.xlim[0]-xlim_shift*xRange,self.xlim[1]-xlim_shift*xRange]
 
-        if self.offset is not None:
-            self.xlim = np.array(self.xlim)-self.offset[0]
-            self.ylim = np.array(self.ylim)-self.offset[1]
+        if self.ps is not None and not np.isnan(self.ps.offset_x): self.xlim = np.array(self.xlim)-self.ps.offset_x
+        if self.ps is not None and not np.isnan(self.ps.offset_y): self.ylim = np.array(self.ylim)-self.ps.offset_y
 
         self.ax_rte.set(xlim=self.xlim, ylim=self.ylim)
         self.ax_rte.axis('off')
@@ -317,12 +315,8 @@ class SocialPlot():
         xpos = 0
         ypos = 0.5
 
-        if self.insetPosition is not None:
-            if self.insetPosition[0] == "right":
-                xpos = 1-width
-
-            if self.insetPosition[1] is not None:
-                ypos = self.insetPosition[1]
+        if self.ps is not None and not np.isnan(self.ps.insetPosition_x) and self.ps.insetPosition_x == "right": xpos = 1-width
+        if self.ps is not None and not np.isnan(self.ps.insetPosition_y): ypos = self.ps.insetPosition_y
 
         self.ax_inset = self.ax_rte.inset_axes([xpos, ypos, width, insetHeight], xlim=xlimCust, ylim=ylimCust, xticklabels=[], yticklabels=[])
         self.ax_inset.plot([self.xlim[0],self.xlim[1],self.xlim[1],self.xlim[0],self.xlim[0]],
