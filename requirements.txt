@@ -4,6 +4,6 @@ matplotlib
 folium
 contextily
 pyproj
--e "C:\Users\stijn\OneDrive\Stijn\Documenten\Coding\Packages\HandyFunctions"
--e "C:\Users\stijn\OneDrive\Stijn\Documenten\Coding\Packages\GPX"
--e "C:\Users\stijn\OneDrive\Stijn\Documenten\Coding\Packages\FoliumClass"
+-e "..\..\Coding\Packages\HandyFunctions"
+-e "..\..\Coding\Packages\GPX"
+-e "..\..\Coding\Packages\FoliumClass"
