@@ -8,12 +8,13 @@
 		"workbench.colorCustomizations": {
 			"titleBar.activeBackground": "#740a0a",
 			"titleBar.activeForeground": "#ffffff",
-			"statusBar.background" : "#1A1A1A",
+			"statusBar.background" : "#740a0a",
 			"statusBar.noFolderBackground" : "#212121",
 			"statusBar.debuggingBackground": "#740a0a",
 			"statussBar.prominentBackground": "#7C21D7",
 			"statusBar.foreground": "#ebe8e8",
 			"button.background": "#740a0a",
+			"button.hoverBackground": "#5a0909",
 			"statusBarItem.remoteBackground" : "#740a0a"
 		},
 	},
