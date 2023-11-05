@@ -7,15 +7,12 @@
 	"settings": {
 		"workbench.colorCustomizations": {
 			"titleBar.activeBackground": "#740a0a",
-			"titleBar.activeForeground": "#ffffff",
-			"statusBar.background" : "#740a0a",
-			"statusBar.noFolderBackground" : "#212121",
+			"titleBar.inactiveBackground": "#740a0a",
+			"statusBar.background": "#740a0a",
 			"statusBar.debuggingBackground": "#740a0a",
-			"statussBar.prominentBackground": "#7C21D7",
-			"statusBar.foreground": "#ebe8e8",
 			"button.background": "#740a0a",
 			"button.hoverBackground": "#5a0909",
-			"statusBarItem.remoteBackground" : "#740a0a"
+			"statusBarItem.remoteBackground": "#740a0a"
 		},
 	},
 }

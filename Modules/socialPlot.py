@@ -1,3 +1,4 @@
+from attr import s
 import contextily as cx
 import pandas as pd
 import matplotlib.patches as mpatches
@@ -31,6 +32,9 @@ class SocialPlot():
 
         self.fig_height = 14.4
         self.fig_width = 14.4
+
+        self.mapTypeInset = "positron"
+        self.mapType = "terrain"
 
         self.fig = plt.figure(figsize=(self.fig_height,self.fig_width))
         self.fig.subplots_adjust(top = 1, bottom = 0, right = 1, left = 0,
@@ -77,15 +81,15 @@ class SocialPlot():
             self.xlim = [xMean-yLimRange/2,xMean+yLimRange/2]
         else:
 
-            u = self.fraq_text
-            l = 0.25
+            l = 0.10
+            r = 0.10
 
-            upper = yRange*u/(1-u-l)
-            lower = yRange*l/(1-u-l)
+            right = xRange*r/(1-r-l)
+            left  = xRange*l/(1-r-l)
 
-            self.xlim = [min(self.df.x)-0.05*xRange,max(self.df.x)+0.05*xRange]
+            self.xlim = [min(self.df.x)-left,max(self.df.x)+right]
             xLimRange = self.xlim[1] - self.xlim[0]
-            yMean = (min(self.df.y) + 0.75*(max(self.df.y)-min(self.df.y))/2)
+            yMean = (min(self.df.y) + (max(self.df.y)-min(self.df.y))/2)
 
             self.ylim = [yMean-xLimRange/2,yMean+xLimRange/2]
 
@@ -245,17 +249,12 @@ class SocialPlot():
                          zorder=6)
 
     def add_basemap(self):
-        # cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=cx.providers.CartoDB.DarkMatter)
-
-        # src = cx.providers.Stadia.StamenTerrain
-        # src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
-        # cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=src,zorder=0)
-        # cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=cx.providers.Esri.WorldImagery,zorder=0)
         zoomlvl = 11
         if self.ps is not None and not np.isnan(self.ps.zoom): zoomlvl = int(self.ps.zoom)
 
+        src = get_src(self.mapType)
 
-        cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=cx.providers.OpenTopoMap,zorder=0,zoom=zoomlvl)
+        cx.add_basemap(self.ax_rte, crs="EPSG:3395",source=src,zorder=0,zoom=zoomlvl)
 
     def add_cols(self):
 
@@ -326,14 +325,7 @@ class SocialPlot():
         self.ax_inset.plot([self.xlim[0],self.xlim[1],self.xlim[1],self.xlim[0],self.xlim[0]],
                            [self.ylim[0],self.ylim[0],self.ylim[1],self.ylim[1],self.ylim[0]],color="k")
 
-        # src = cx.providers.Stadia.StamenTerrain
-        # src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
-
-        # src = cx.providers.CartoDB.DarkMatterNoLabels
-
-        # src = cx.providers.CartoDB.PositronNoLabels
-        src = cx.providers.CartoDB.Voyager
-        # src = cx.providers.CartoDB.Positron
+        src = get_src(self.mapTypeInset)
         cx.add_basemap(self.ax_inset, crs="EPSG:3395",source=src,zorder=0)
         self.ax_inset.texts[-1].remove()
 
@@ -375,7 +367,6 @@ def getPeak(df,peak,colname,range=0.002):
     df_new["name"] = colname
 
     return df_new
-
 
 def createElevPlotInsta(obj):
     fig,ax = plt.subplots(figsize=(14.4,14.4))
@@ -428,3 +419,22 @@ def createElevPlotInsta(obj):
 
 def transCoords(lat,lon):
     return Transformer.from_crs("EPSG:4326","EPSG:3395").transform(lat,lon)
+
+def get_src(mapType):
+    match mapType:
+        case "satellite":
+            return cx.providers.Esri.WorldImagery
+        case "terrain":
+            src =  cx.providers.Stadia.StamenTerrain
+            src["url"] = src.url + "?api_key=6af2cccf-6d29-4b28-ae30-4842f2a0133a"
+            return src
+        case "positron":
+            return cx.providers.CartoDB.Positron
+        case "voyager":
+            return cx.providers.CartoDB.Voyager
+        case "dark_matter":
+            return cx.providers.CartoDB.DarkMatter
+        case "openTopo":
+            cx.providers.OpenTopoMap
+        case _:
+            return cx.providers.CartoDB.Positron
