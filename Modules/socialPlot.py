@@ -34,7 +34,7 @@ class SocialPlot():
         self.fig_width = 14.4
 
         self.mapTypeInset = "positron"
-        self.mapType = "terrain"
+        self.mapType = "openTopo"
 
         self.fig = plt.figure(figsize=(self.fig_height,self.fig_width))
         self.fig.subplots_adjust(top = 1, bottom = 0, right = 1, left = 0,
@@ -47,7 +47,10 @@ class SocialPlot():
         self.add_start_end()
         self.add_text()
         self.add_cols()
-        self.add_Inset()
+        self.add_inset()
+
+        if self.ps is not None and self.ps.custInset == 1:
+            self.add_cust_inset()
 
         self.add_basemap()
 
@@ -304,7 +307,7 @@ class SocialPlot():
                 h,l = self.ax_elv.get_legend_handles_labels()
                 self.ax_rte.legend(h,l,loc="right",markerscale=0.5,fontsize=8.5,bbox_to_anchor=(1.006,0.607),labelcolor="white",facecolor = 'black')
 
-    def add_Inset(self):
+    def add_inset(self):
         xlimCust = [600000, 1100000]
         ylimCust = [5030000,6050000]
         xRange = xlimCust[1] - xlimCust[0]
@@ -330,6 +333,29 @@ class SocialPlot():
         self.ax_inset.texts[-1].remove()
 
         self.ax_inset.axis('off')
+
+    def add_cust_inset(self):
+
+        xpos = 826650
+        ypos = 5395250
+
+        xRange = 1500
+        yRange = 1500
+
+        xlimCust = [xpos - xRange/2 , xpos + xRange/2 ]
+        ylimCust = [ypos - yRange/2, ypos + yRange/2]
+
+        width = 0.3
+        height = 0.3
+
+        self.ax_inset_cust = self.ax_rte.inset_axes([0.55, 0.15, width, height], xlim=xlimCust, ylim=ylimCust, xticklabels=[], yticklabels=[])
+        self.ax_inset_cust.plot(self.df.x,self.df.y,color="black",lw=2)
+        self.ax_inset_cust.tick_params(left = False, bottom = False)
+        self.ax_rte.indicate_inset_zoom(self.ax_inset_cust, edgecolor="black")
+
+        src = get_src(self.mapType)
+        cx.add_basemap(self.ax_inset_cust, crs="EPSG:3395",source=src,zorder=0)
+        self.ax_inset_cust.texts[-1].remove()
 
 def get_cols(df):
 
